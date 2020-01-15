@@ -6,7 +6,6 @@
  */
 function isPositive(num) {
   return _____;
-  hello
 }
 
 if (require.main === module) {
