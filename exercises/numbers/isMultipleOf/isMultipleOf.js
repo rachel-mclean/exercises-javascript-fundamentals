@@ -11,9 +11,18 @@
  * @param {number} n - The number to check the factors of
  * @param {number} d - The potential factor
  * @returns {boolean} True if n is a multiple of d and false otherwise
+ *
+ *
+ * @jfarmer There is an instance in one loop when n=0 and d=2, and you ran a check for it to be true, but
+ *  in the check for 0, there is an instance where n=0 and d=2 and you ran a check for it to be false
+ * should 0 be treated as a multiple of something or not?
  */
 function isMultipleOf(n, d) {
-  return _____;
+  if(d===0){
+    return false;
+  }
+  
+  return n%d===0;
 }
 
 if (require.main === module) {
@@ -39,6 +48,7 @@ if (require.main === module) {
   for (let num of multiplesOf2) {
     console.log(isMultipleOf(num, 2) === true);
     console.log(isMultipleOf(num + 1, 2) === false);
+
   }
 
   console.log('');
