@@ -14,7 +14,7 @@ function shortest(array) {
       smallest = array[i];
     }
   }
-
+//hello
   return smallest;
 }
 
