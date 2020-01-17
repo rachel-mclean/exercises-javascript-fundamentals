@@ -30,8 +30,8 @@ if (require.main === module) {
   console.log(countValue([1, 2, 3, 4, 5], 17)===0);
   console.log(countValue([1, 2, 1, 2, 3, 4, 1, 2, 1], 1)===4);
   countValue([10, 10, 10, -10], 10); // => 3
-  countValue(['hello', bananas', 'hello'], 'hello'); // => 2
-  countValue(['hello', bananas', 'hello'], 'giraffe'); // => 0
+  //countValue(['hello', bananas', 'hello'], 'hello'); // => 2
+  //countValue(['hello', bananas', 'hello'], 'giraffe'); // => 0
 }
 
 module.exports = countValue;
