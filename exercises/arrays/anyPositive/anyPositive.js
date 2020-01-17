@@ -10,18 +10,25 @@
  * anyPositive([-10, -10, 1]); // => true
  *
  * @param {number[]} array - An array of numbers
- * @returns {boolean} True if every number in the input array is positive
+ * @returns {boolean} True if any number in the input array is positive
  *   and false otherwise.
  */
 function anyPositive(array) {
-  // This is your job. :)
+  for(let num of array){
+    if(num>0){
+      return true;
+    }
+  }
+  return false;
 }
 
 if (require.main === module) {
   console.log('Running sanity checks for anyPositive:');
 
-  // Add your own sanity checks here.
-  // How else will you be sure your code does what you think it does?
+  console.log(anyPositive([1, 1, 1, 1])===true);
+  console.log(anyPositive([-1, -1, -1, -1])===false);
+  console.log(anyPositive([-1, 1, -1, 1])===true);
+  console.log(anyPositive([0, 0, 0])===false);
 }
 
 module.exports = anyPositive;

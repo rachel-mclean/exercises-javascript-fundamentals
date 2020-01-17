@@ -13,23 +13,26 @@
  * @param {number} num - A positive integer
  * @returns {number[]} An array of all the prime factors of the given integer
  */
-function primeFactors(num) {
-  /*
-    Your code goes here.
 
-    Work out one version that works and don't worry about performance.
 
-    If you're having trouble working it out in code, step out of JS-land
-    and use pen/paper, index cards, etc. — anything that helps you think
-    about it without getting stuck in JavaScript syntax.
-  */
+ function primeFactors(num) {
+  let factors = []
+  for(let i = 1; i<=num; i++){
+    if(num%i===0){
+      factors.push(i);
+    }
+  }
+
+  if(factors.length===2){
+    return factors;
+  }
 }
 
 if (require.main === module) {
-  console.log('Running sanity checks for primeFactors:');
+  //console.log('Running sanity checks for primeFactors:');
 
-  // Add your own sanity checks here.
-  // How else will you be sure your code does what you think it does?
-}
+  console.log('[1, 61]===', primeFactors(61));
+  console.log('[1, 3]===', primeFactors(3));
+} 
 
 module.exports = primeFactors;

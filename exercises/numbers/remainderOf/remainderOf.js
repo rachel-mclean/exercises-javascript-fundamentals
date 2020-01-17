@@ -12,23 +12,29 @@
  * remainderOf(10, 4); // => 2
  * remainderOf(129, 17); // => 10
  *
- * @param {number} num The input number
- * @returns {boolean} True if num is even and false otherwise
+ * @param {number} n The input number
+ * @param {number} d Input number
+ * @returns {number} remainder after dividing by 'd'
  */
-function remainderOf(num) {
-  /*
-    This is your job. :)
-
-    If you're not sure, step out of the code and use pen + paper. Start
-    with simple examples and pay attention to the process you carry out.
-  */
+function remainderOf(n, d) {
+  if(d===0){
+    return "No division by 0";
+  }
+  
+  let roundedDecimal = Math.floor(n/d);
+  return n-(d*roundedDecimal);
 }
 
 if (require.main === module) {
   console.log('Running sanity checks for remainderOf');
 
-  // Add your own sanity checks here.
-  // How else will you be sure your code does what you think it does?
+  console.log(remainderOf(91, 13)===0);
+  console.log(remainderOf(0, 2)===0);
+  console.log(remainderOf(2, 0)==="No division by 0");
+  console.log(remainderOf(10, 2)===0);
+  console.log(remainderOf(10, 3)===1);
+  console.log(remainderOf(10, 4)===2);
+  console.log(remainderOf(129, 17)===10);
 }
 
 module.exports = remainderOf;

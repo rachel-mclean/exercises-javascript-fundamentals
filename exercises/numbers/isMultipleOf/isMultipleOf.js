@@ -13,7 +13,12 @@
  * @returns {boolean} True if n is a multiple of d and false otherwise
  */
 function isMultipleOf(n, d) {
-  return _____;
+  if(d===0){
+    return false;
+  }
+  
+  
+  return n%d===0;
 }
 
 if (require.main === module) {
@@ -39,6 +44,10 @@ if (require.main === module) {
   for (let num of multiplesOf2) {
     console.log(isMultipleOf(num, 2) === true);
     console.log(isMultipleOf(num + 1, 2) === false);
+
+    //question - here, there is an instance in the loop where n=0 and d=2, and you want it to be true
+    //in the check for 0, there is an instance where n=0 and d=2 and you want it to be false
+    //should 0 be treated as a multiple of something or not?
   }
 
   console.log('');
