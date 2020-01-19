@@ -24,15 +24,73 @@
  * @returns {string} Returns 'win', 'lose', or 'draw' depending on
  *  whether the first player won, lost, or drew the match.
  */
-function rockPaperScissorsWinner(array) {
-  // This is your job. :)
+function rockPaperScissorsWinner(firstPlayerMove, secondPlayerMove) {
+  if(firstPlayerMove===0){
+    return scissors(secondPlayerMove);
+  }
+
+  else if(firstPlayerMove===1){
+    return paper(secondPlayerMove);
+  }
+
+  else{
+    return rock(secondPlayerMove);
+  }
 }
+
+function scissors(secondPlayerMove){
+  if(secondPlayerMove===1){
+    return "win";
+  }
+
+  else if(secondPlayerMove===2){
+    return "lose";
+  }
+
+  else{
+    return "draw";
+  }
+}
+
+function paper(secondPlayerMove){
+  if(secondPlayerMove===2){
+    return "win";
+  }
+
+  else if(secondPlayerMove===0){
+    return "lose";
+  }
+
+  else{
+    return "draw"
+  }
+}
+
+function rock(secondPlayerMove){
+  if(secondPlayerMove===1){
+    return "lose";
+  }
+
+  else if(secondPlayerMove===0){
+    return "win";
+  }
+
+  else{
+    return "draw";
+  }
+}
+
 
 if (require.main === module) {
   console.log('Running sanity checks for rockPaperScissorsWinner:');
 
-  // Add your own sanity checks here.
-  // How else will you be sure your code does what you think it does?
+  console.log(rockPaperScissorsWinner(0, 1)==="win");
+  console.log(rockPaperScissorsWinner(1, 0)==="lose"); 
+  console.log(rockPaperScissorsWinner(1, 2)==="win"); 
+  console.log(rockPaperScissorsWinner(2, 2)==="draw");
+  console.log(rockPaperScissorsWinner(1, 1)==="draw");
+  console.log(rockPaperScissorsWinner(2, 1)==="lose");
+  console.log(rockPaperScissorsWinner(0, 0)==="draw");
 }
 
 module.exports = rockPaperScissorsWinner;
