@@ -12,14 +12,26 @@
  */
 
 function replaceCharacters(string, replacementDict) {
-  // This is your job. :)
+  for(let i = 0; i<string.length;i++){
+    let character = string.slice(i, i+1);
+      if(character in replacementDict){
+        string = string.slice(0, i) + replacementDict[character] + string.slice(i+1);
+        //console.log(string);
+      }
+  }
+  return string;
 }
 
 if (require.main === module) {
   console.log('Running sanity checks for replaceCharacters:');
 
-  // Add your own sanity checks here.
-  // How else will you be sure your code does what you think it does?
+  console.log(replaceCharacters("000001111", {"0": "1", "1": "0"})=== "111110000");
+  console.log(replaceCharacters('hello', {'h': 'y', 'l': '8'})==="ye88o");
+  console.log(replaceCharacters('hello', {'a': 'y', 'u': '8'})==="hello");
+  console.log(replaceCharacters('hello', {'h': 'y', 'u': '8'})==="yello");
+  console.log(replaceCharacters(" ", {" ": 'y', 'l': '8'})==="y");
+  console.log(replaceCharacters("100001", {'1': '3', '0': '4'})==="344443");
+  console.log(replaceCharacters('hello', {'h': 'y', 'l': '1', 'e' : 3})==="y311o");
 }
 
 module.exports = replaceCharacters;
