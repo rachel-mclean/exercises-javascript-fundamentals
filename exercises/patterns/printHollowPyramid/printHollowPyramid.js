@@ -28,10 +28,23 @@ let helpers = require('../printHelpers');
  * @param {number} height - The height of the pyramid to print
  */
 function printHollowPyramid(height) {
-  for (let i = 0; i < height; i++) {
-    // This is your job. :)
+  for (let i = 1; i <= height; i++) {
 
-    helpers.printNewLine();
+    let numSpaces = height-i;
+
+    if(i===1 || i===height){
+      helpers.printCountTimes(' ', numSpaces);
+      helpers.printCountTimes('#', i*2-1);
+      helpers.printNewLine();
+    }
+  
+    else{
+      helpers.printCountTimes(' ', numSpaces);
+      helpers.print("#");
+      helpers.printCountTimes(" ", i*2-3);
+      helpers.print("#");
+      helpers.printNewLine();
+    }
   }
 }
 
