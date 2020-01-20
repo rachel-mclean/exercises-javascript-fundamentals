@@ -15,15 +15,32 @@
  * @returns {boolean} The index of the last occurrence of the value in the
  *  array, or -1 if it's not found.
  */
-function lastIndexOf(haystack, needle) {
-  // This is your job. :)
+function lastIndexOf(haystack, needle) { //this one is also not working and I can't figure out why
+  let currentIndex = 0;
+
+  for(let i = 0; i<haystack.length; i++){
+    if(haystack[i]===needle){
+      currentIndex+=1;
+      console.log(currentIndex);
+    }
+  }
+
+  if(currentIndex>0){
+    return currentIndex;
+  }
+
+  else{
+    return -1;
+  }
 }
 
 if (require.main === module) {
   console.log('Running sanity checks for lastIndexOf:');
 
-  // Add your own sanity checks here.
-  // How else will you be sure your code does what you think it does?
+  console.log(lastIndexOf([10, 20, 30, 20], 20)===3);
+  console.log(lastIndexOf([10, 20, 30, 20], 17)===-1);
+  console.log(lastIndexOf(['giraffe', 'giraffe', 'banana', 'giraffe'])===1);
+  console.log(lastIndexOf(['giraffe', 'giraffe', 'banana', 'banana'])===2);
 }
 
 module.exports = lastIndexOf;
