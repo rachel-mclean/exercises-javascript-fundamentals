@@ -7,14 +7,23 @@
  * @returns {number} The longest string in the array
  */
 function longest(array) {
-  // This is your job. :)
+  let longest = array[0];
+
+  for(let i = 0; i<array.length; i++){
+    if(array[i].length>=longest.length){
+      longest = array[i];
+    }
+  }
+
+  return longest;
 }
 
 if (require.main === module) {
   console.log('Running sanity checks for longest:');
 
-  // Add your own sanity checks here.
-  // How else will you be sure your code does what you think it does?
+  console.log(longest(['dog', 'cat', 'shark', 'elephant'])==='elephant');
+  console.log(longest(['one', 'seven', 'fourteen', 'one'])==='fourteen');
+  
 }
 
 module.exports = longest;
