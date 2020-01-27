@@ -28,14 +28,39 @@ function selectGreaterThan(array, threshold) {//I can't figure out my mistake he
   return newArray;
 }
 
+
+function arrayEquals(array1, array2){
+  if(array1.length!==array2.length){
+    return false;
+  }
+  for(let i = 0; i<array1.length; i++){
+    if (array1[i]!==array2[i]){
+      return false;
+    }
+  }
+
+  return true;
+} 
+
 if (require.main === module) {
   console.log('Running sanity checks for selectGreaterThan:');
 
-  console.log(selectGreaterThan([1, 2, 3, 4, 5], 2)===[3, 4, 5]);
-  console.log(selectGreaterThan([1, 2, 3, 4, 5], 17)===[]);
-  console.log(selectGreaterThan([1, 2, 1, 2, 3, 4, 1, 2, 1], 1)===[2, 2, 3, 4, 2]);
-  console.log(selectGreaterThan([10, 10, 10, -10, 15], 10)===[15]);
-  console.log(selectGreaterThan([10, 20, 30, 40], 100)===[]);
+  //check that arrayEquals is working
+  console.log(arrayEquals([1, 2, 3, 4, 5], [1, 2, 3, 4, 5]));
+
+  //new checks for selectGreaterThan
+  console.log(arrayEquals(selectGreaterThan([1, 2, 3, 4, 5], 2), [3, 4, 5]));
+  console.log(arrayEquals(selectGreaterThan([1, 2, 3, 4, 5], 17), []));
+  console.log(arrayEquals(selectGreaterThan([1, 2, 1, 2, 3, 4, 1, 2, 1], 1), [2, 2, 3, 4, 2]));
+  console.log(arrayEquals(selectGreaterThan([10, 10, 10, -10, 15], 10), [15]));
+  console.log(arrayEquals(selectGreaterThan([10, 20, 30, 40], 100), []));
+
+
+  // console.log(selectGreaterThan([1, 2, 3, 4, 5], 2)===[3, 4, 5]);
+  // console.log(selectGreaterThan([1, 2, 3, 4, 5], 17)===[]);
+  // console.log(selectGreaterThan([1, 2, 1, 2, 3, 4, 1, 2, 1], 1)===[2, 2, 3, 4, 2]);
+  // console.log(selectGreaterThan([10, 10, 10, -10, 15], 10)===[15]);
+  // console.log(selectGreaterThan([10, 20, 30, 40], 100)===[]);
 }
 
 module.exports = selectGreaterThan;
