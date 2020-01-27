@@ -48,7 +48,7 @@ if (require.main === module) {
   //check that arrayEquals is working
   console.log(arrayEquals([1, 2, 3, 4, 5], [1, 2, 3, 4, 5]));
 
-  //new checks for selectGreaterThan
+  //new checks for selectGreaterThan using arrayEquals
   console.log(arrayEquals(selectGreaterThan([1, 2, 3, 4, 5], 2), [3, 4, 5]));
   console.log(arrayEquals(selectGreaterThan([1, 2, 3, 4, 5], 17), []));
   console.log(arrayEquals(selectGreaterThan([1, 2, 1, 2, 3, 4, 1, 2, 1], 1), [2, 2, 3, 4, 2]));
