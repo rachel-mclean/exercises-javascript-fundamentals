@@ -23,9 +23,9 @@ let helpers = require('../printHelpers');
 function printMultiplicationTable(n) {
   for(let i = 1; i<=n; i++){
     for(let j = 1; j<=n; j++){
-      let num = j*i;
+      let num = String(j*i);
 
-      if((num + "").length>1){
+      if((num).length>1){
         helpers.print(num + " ");
       }
 
