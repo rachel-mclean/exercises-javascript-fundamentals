@@ -34,15 +34,18 @@ let helpers = require('../printHelpers');
  * @param {number} height - The height of the triangle to print
  */
 function printHollowRightTriangle(height) {
-  for (let i = 0; i < height; i++) {
-    /*
-      This is your job. :)
+  for (let i = 1; i <= height; i++) {
+    if(i===1 || i===2 || i===height){
+      helpers.printCountTimes('#', i);
+      helpers.printNewLine();
+    }
 
-      Play with iterating from 1, 2, ..., height instead of 0, 1, 2, ..., height-1.
-      Depending on your approach, it might simplify the logic.
-    */
-
-    helpers.printNewLine();
+    else{
+      helpers.print("#");
+      helpers.printCountTimes(" ", i-2);
+      helpers.print("#");
+      helpers.printNewLine();
+    }
   }
 }
 

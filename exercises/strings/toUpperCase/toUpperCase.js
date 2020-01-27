@@ -16,14 +16,33 @@
  */
 
 function toUpperCase(string) {
-  // This is your job. :)
+  
+  let upperCase = ""; 
+  
+  for(let i = 0; i<string.length; i++){
+    let current = string.charCodeAt(i);
+
+    if(current >= 97 && current<=122){
+      upperCase = upperCase + String.fromCharCode(current-32);
+    }
+
+    else{
+      upperCase = upperCase + string.charAt(i);
+    }
+  }
+
+  return upperCase;
+
 }
 
 if (require.main === module) {
-  console.log('Running sanity checks for toUpperCase:');
+  console.log('Running sanity checks for toLowerCase:');
 
-  // Add your own sanity checks here.
-  // How else will you be sure your code does what you think it does?
+  console.log(toUpperCase('HelLo fRiends!')==='HELLO FRIENDS!');
+  console.log(toUpperCase('HELLO fRiends!')==='HELLO FRIENDS!');
+  console.log(toUpperCase('aBCD')==='ABCD');
+  console.log(toUpperCase('ABCD')==='ABCD');
+
 }
 
 module.exports = toUpperCase;

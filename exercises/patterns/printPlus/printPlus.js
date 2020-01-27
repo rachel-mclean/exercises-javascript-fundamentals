@@ -38,7 +38,15 @@ function printPlus(height) {
   }
 
   for (let i = 0; i < height; i++) {
-    // This is your job. :)
+    if(i===Math.floor(height/2)){
+      helpers.printCountTimes("#", height);
+    }
+
+    else{
+      helpers.printCountTimes(" ", Math.floor(height/2));
+      helpers.print("#");
+      helpers.printCountTimes(" ", Math.floor(height/2));
+    }
 
     helpers.printNewLine();
   }

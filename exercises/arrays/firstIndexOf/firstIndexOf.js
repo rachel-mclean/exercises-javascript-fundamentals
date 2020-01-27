@@ -15,15 +15,25 @@
  * @returns {boolean} The index of the first occurrence of the value in the
  *  array, or -1 if it's not found.
  */
-function firstIndexOf(haystack, needle) {
-  // This is your job. :)
+function firstIndexOf(haystack, needle) { //this is not working but I can't figure out what I did wrong, it doesn't work for strings
+  for(let i = 0; i<haystack.length; i++){
+    //console.log(haystack[i]);
+    if(haystack[i]===needle){
+      return i;
+    }
+  }
+  
+  return -1;
 }
 
 if (require.main === module) {
   console.log('Running sanity checks for firstIndexOf:');
 
-  // Add your own sanity checks here.
-  // How else will you be sure your code does what you think it does?
+  console.log(firstIndexOf([10, 20, 30, 20], 20)===1);
+  console.log(firstIndexOf([10, 20, 30, 20], 17)===-1);
+  console.log(firstIndexOf(['giraffe', 'giraffe', 'banana', 'giraffe'])===0);
+  console.log(firstIndexOf(['giraffe', 'giraffe', 'banana', 'giraffe']));
+  console.log(firstIndexOf(['giraffe', 'giraffe', 'banana', 'banana'])===2);
 }
 
 module.exports = firstIndexOf;

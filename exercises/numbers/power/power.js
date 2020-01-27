@@ -26,7 +26,7 @@ function power(base, exponent) {
 
   let current=1;
   for(let i = 1; i<=exponent; i++){
-    current*=base;
+    current*=base; //current=current*base
   }
   return current;
 }

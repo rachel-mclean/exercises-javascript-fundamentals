@@ -13,20 +13,36 @@
  *
  * @example
  * median([900, 10, 20]); // => 20 since 20 is the middle element
- * mean([-10, 20, 400, 10]); // => 15 since 10,20 are the middle elements
+ * mean([-10, 20, 400, 10]); // => 15 since 10,20 are the middle selement
  *
  * @param {number[]} array - An array of numbers
  * @returns {number} The median of the numbers in the array
  */
 function median(array) {
-  // This is your job. :)
+
+  array = array.sort();
+
+  let length = array.length;
+
+  if(length%2==1){
+    return array[Math.floor(length/2)];
+  }
+
+  else{
+     let median = (array[Math.floor(length/2)-1]+ array[Math.floor(length/2)])/2;
+     return median;
+  }
 }
+
 
 if (require.main === module) {
   console.log('Running sanity checks for median:');
 
-  // Add your own sanity checks here.
-  // How else will you be sure your code does what you think it does?
+  console.log(median([900, 10, 20])===20);
+  console.log(median([-10, 20, 400, 10])===15);
+  console.log(median([0, 1, 2, 3, 4])===2);
+  console.log(median([0, 0, 1, 1])===.5);
+  console.log(median([5])===5);
 }
 
 module.exports = median;

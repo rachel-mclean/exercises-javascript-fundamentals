@@ -21,14 +21,23 @@ let helpers = require('../printHelpers');
  * @param {number} n - The size of the multiplication table to print
  */
 function printMultiplicationTable(n) {
-  /*
-    This is your job. :)
+  for(let i = 1; i<=n; i++){
+    for(let j = 1; j<=n; j++){
+      let num = j*i;
 
-    Note: Getting the numbers aligned in a way that looks nice can be
-    a pain in the butt. Get one version working that prints out the
-    multiplication table without concern for alignment and then figure
-    out how to align the columns.
-  */
+      if((num + "").length>1){
+        helpers.print(num + " ");
+      }
+
+      else{
+        helpers.print(" " + num + " ");
+      }
+      
+    }
+
+    helpers.printNewLine();
+  }
+
 
   helpers.printNewLine();
 }

@@ -29,14 +29,35 @@
  */
 
 function rot13(string) {
-  // This is your job. :)
+  let rot13Dict = {'a': 'n', 'b': 'o', 'c': 'p', 'd': 'q', 'e': 'r', 'f': 's', 'g': 't', 'h': 'u', 'i': 'v', 'j': 'w',
+              'k': 'x', 'l': 'y', 'm': 'z', 'n': 'a', 'o': 'b', 'p': 'c', 'q':'d', 'r': 'e', 's': 'f', 't': 'g', 
+              'u': 'h', 'v': 'i', 'w': 'j', 'x': 'k', 'y': 'l', 'z': 'm'};
+  string = string.toLowerCase();
+
+  for(let i = 0; i<string.length;i++){
+    let character = string.charAt(i);
+    if(rot13Dict.hasOwnProperty(character)){
+      string = string.slice(0, i) + rot13Dict[character] + string.slice(i+1);
+    }
+  }
+
+  return string;
 }
 
 if (require.main === module) {
   console.log('Running sanity checks for rot13:');
 
-  // Add your own sanity checks here.
-  // How else will you be sure your code does what you think it does?
+  console.log(rot13('a')==='n');
+  console.log(rot13('Zora')==='mben');
+  console.log(rot13('Hello, world!')==='uryyb, jbeyq!');
+  console.log(rot13('Uryyb, jbeyq!')==='hello, world!'); //in the documentation at the top it says to return a 
+                                                        //lowercase version, but in your examples at the top some 
+                                                        //of the letters were still capitalized. I just had my code
+                                                        // return lowercase because I couldn't figure out how 
+                                                        // to keep the uppercase in the correct spot each time, but
+                                                        // I can come back to this if you would like.
+                                                        
+                                                        
 }
 
 module.exports = rot13;

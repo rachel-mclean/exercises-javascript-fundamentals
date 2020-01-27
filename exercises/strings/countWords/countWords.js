@@ -8,14 +8,20 @@
  */
 
 function countWords(string) {
-  // This is your job. :)
+  if(string==="" || string===" "){
+    return 0;
+  }
+  return string.split(" ").length;
 }
 
 if (require.main === module) {
   console.log('Running sanity checks for countWords:');
 
-  // Add your own sanity checks here.
-  // How else will you be sure your code does what you think it does?
+  console.log(countWords('Adjacent is awesome')===3);
+  console.log(countWords('dog cat tiger bear lion')===5);
+  console.log(countWords("")===0);
+  console.log(countWords(" ")===0);
+  console.log(countWords('Adjacent')===1);
 }
 
 module.exports = countWords;

@@ -13,14 +13,24 @@
  */
 
 function replaceCharacter(string, target, replaceWith) {
-  // This is your job. :)
+  for(let i = 0; i<string.length; i++){
+    if(string.slice(i,i+1)===target){
+      string = string.slice(0, i) + replaceWith + string.slice(i+1);
+    }
+  }
+  return string;
 }
 
 if (require.main === module) {
   console.log('Running sanity checks for replaceCharacter:');
 
-  // Add your own sanity checks here.
-  // How else will you be sure your code does what you think it does?
+  console.log(replaceCharacter('hello', 'l', '8')==="he88o");
+  console.log(replaceCharacter('Saturday', 'a', '4')==="S4turd4y");
+  console.log(replaceCharacter('hello', 'i', '8')==="hello");
+  console.log(replaceCharacter('nice to meet you', " ", '-')==="nice-to-meet-you");
+  console.log(replaceCharacter('o', 'o', 'k')==="k");
+  console.log(replaceCharacter(" ", " ", '1')==="1");
+  console.log(replaceCharacter('10001', '1', '2')==="20002");
 }
 
 module.exports = replaceCharacter;
