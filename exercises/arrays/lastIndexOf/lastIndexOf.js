@@ -16,17 +16,19 @@
  *  array, or -1 if it's not found.
  */
 function lastIndexOf(haystack, needle) { //this one is also not working and I can't figure out why
-  let currentIndex = 0;
+  let lastIndexFound;
 
-  for(let i = 0; i<haystack.length; i++){
+  for(let i = 0; i<haystack.length; i++){ //I think my if-statement is not working for string arrays, but 
+                                          //I can't figure out why.
+    console.log(haystack[i]);
     if(haystack[i]===needle){
-      currentIndex+=1;
-      console.log(currentIndex);
+      lastIndexFound=i;
+      console.log(haystack[lastIndexFound]);
     }
   }
 
-  if(currentIndex>0){
-    return currentIndex;
+  if(lastIndexFound>=0){
+    return lastIndexFound;
   }
 
   else{
@@ -37,10 +39,12 @@ function lastIndexOf(haystack, needle) { //this one is also not working and I ca
 if (require.main === module) {
   console.log('Running sanity checks for lastIndexOf:');
 
-  console.log(lastIndexOf([10, 20, 30, 20], 20)===3);
-  console.log(lastIndexOf([10, 20, 30, 20], 17)===-1);
+  //console.log(lastIndexOf([10, 20, 30, 20], 20)===3);
+  //console.log(lastIndexOf([10, 20, 30, 20], 17)===-1);
   console.log(lastIndexOf(['giraffe', 'giraffe', 'banana', 'giraffe'])===1);
+  console.log(lastIndexOf(['giraffe', 'giraffe', 'banana', 'giraffe']));
   console.log(lastIndexOf(['giraffe', 'giraffe', 'banana', 'banana'])===2);
+  console.log(lastIndexOf(['giraffe', 'giraffe', 'banana', 'banana']));
 }
 
 module.exports = lastIndexOf;
