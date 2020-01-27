@@ -8,6 +8,15 @@
  * @returns {boolean} True if a triangle exists with side lengths of a, b, and c. Returns false otherwise.
  */
 function isValidTriangle(a, b, c) {
+  //sum of two sides must be greater than third side
+  if(a+b>c && b+c>a && c+a>b){
+    return true;
+  }
+
+  else{
+    return false;
+  }
+  
   /*
     Before you go Googling, get out a piece of paper and draw some triangles.
 
@@ -31,6 +40,10 @@ if (require.main === module) {
   console.log(isValidTriangle(4, 5, 3) === true);
   console.log(isValidTriangle(5, 3, 4) === true);
   console.log(isValidTriangle(5, 4, 3) === true);
+  console.log(isValidTriangle(5, 8, 3) === false);
+  console.log(isValidTriangle(3, 8, 5) === false);
+  console.log(isValidTriangle(4, 6, 11) === false);
+  console.log(isValidTriangle(5, 5, 5) === true);
 
   // Add your own sanity checks here. Test negative cases.
   // How else will you be sure your code does what you think it does?
