@@ -16,7 +16,7 @@
  * @returns {number[]} A new array consisting of all the numbers in input array
  *  strictly less than the threshold
  */
-function selectLessThan(array, threshold) {//I can't figure out my mistake here
+function selectLessThan(array, threshold) {
   let newArray = [];
 
   for(let i = 0; i<array.length; i++){
