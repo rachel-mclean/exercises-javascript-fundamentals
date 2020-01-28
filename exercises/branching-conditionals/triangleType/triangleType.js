@@ -13,19 +13,55 @@
  * triangleType(12, 15, 8); // => 'obtuse'
  * triangleType(1, 1, 3); // => 'invalid'
  *
- * @param {number} monthNum - A number representing the month, with 1 for January
- *   and 12 for December.
- * @return {number} The number of days in the given month
+ * @param {number} a- one side of the triangle
+ * @param {number} b- one side of the triangle
+ * @param {number} c- one side of the triangle
+ * @return {String}
  */
-function triangleType(monthNum) {
-  // This is your job. :)
+function triangleType(a, b, c) {
+  if(!isValidTriangle(a, b, c)){
+    return 'invalid';
+  }
+
+  if(Math.pow(a, 2) + Math.pow(b, 2) === Math.pow(c, 2) || Math.pow(b, 2) + Math.pow(c, 2) === Math.pow(a, 2)
+    || Math.pow(a, 2) + Math.pow(c, 2) === Math.pow(b, 2)){
+    return 'right';
+  }
+
+  else if(Math.pow(a, 2) + Math.pow(b, 2) < Math.pow(c, 2) || Math.pow(b, 2) + Math.pow(c, 2) < Math.pow(a, 2)
+  || Math.pow(a, 2) + Math.pow(c, 2) < Math.pow(b, 2)){
+    return 'obtuse';
+  }
+
+  else{
+    return 'acute'
+  }
+
+}
+
+function isValidTriangle(a, b, c) {
+  //sum of two sides must be greater than third side
+  if(a<=0 || b<=0 || c<=0){
+    return false;
+  }
+
+  if(a+b>c && b+c>a && c+a>b){
+    return true;
+  }
+
+  else{
+    return false;
+  }
 }
 
 if (require.main === module) {
   console.log('Running sanity checks for triangleType:');
 
-  // Add your own sanity checks here.
-  // How else will you be sure your code does what you think it does?
+  console.log(triangleType(3, 4, 5)==='right');
+  console.log(triangleType(4, 3, 5)==='right');
+  console.log(triangleType(1, 1, 1)==='acute');
+  console.log(triangleType(12, 15, 8)==='obtuse');
+  console.log(triangleType(1, 1, 3)==='invalid');
 }
 
 module.exports = triangleType;
