@@ -9,6 +9,10 @@
  */
 function isValidTriangle(a, b, c) {
   //sum of two sides must be greater than third side
+  if(a<=0 || b<=0 || c<=0){
+    return false;
+  }
+
   if(a+b>c && b+c>a && c+a>b){
     return true;
   }
@@ -44,6 +48,8 @@ if (require.main === module) {
   console.log(isValidTriangle(3, 8, 5) === false);
   console.log(isValidTriangle(4, 6, 11) === false);
   console.log(isValidTriangle(5, 5, 5) === true);
+  console.log(isValidTriangle(0, 1, 8) === false);
+  console.log(isValidTriangle(-1, -1, -1) === false);
 
   // Add your own sanity checks here. Test negative cases.
   // How else will you be sure your code does what you think it does?
