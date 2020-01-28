@@ -12,14 +12,35 @@
  *   input array.
  */
 function removeEmpty(array) {
-  // This is your job. :)
+  let newArray = [];
+  for(let i = 0; i<array.length; i++){
+    if(array[i]!==null && array[i]!==undefined && array[i]!==''){
+      newArray.push(array[i]);
+    }
+  }
+
+  return newArray;
 }
+
+function arrayEquals(array1, array2){
+  if(array1.length!==array2.length){
+    return false;
+  }
+  for(let i = 0; i<array1.length; i++){
+    if (array1[i]!==array2[i]){
+      return false;
+    }
+  }
+
+  return true;
+} 
 
 if (require.main === module) {
   console.log('Running sanity checks for removeEmpty:');
 
-  // Add your own sanity checks here.
-  // How else will you be sure your code does what you think it does?
+  console.log(arrayEquals(removeEmpty([null, '', '']), []));
+  console.log(arrayEquals(removeEmpty(['Jesse', undefined, 'Farmer']), ['Jesse', 'Farmer']));
+  console.log(arrayEquals(removeEmpty(['one', '', 'two', '', 'three']), ['one', 'two', 'three']));
 }
 
 module.exports = removeEmpty;
