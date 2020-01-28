@@ -22,14 +22,36 @@
  * @returns {object[]} The concatenation of the two given arrays
  */
 function concat(leftArray, rightArray) {
-  // This is your job. :)
+  let concatenation = leftArray;
+
+  for(let i = 0; i<rightArray.length; i++){
+    concatenation.push(rightArray[i]);
+  }
+
+  return concatenation;
 }
+
+function arrayEquals(array1, array2){
+  if(array1.length!==array2.length){
+    return false;
+  }
+  for(let i = 0; i<array1.length; i++){
+    if (array1[i]!==array2[i]){
+      return false;
+    }
+  }
+
+  return true;
+} 
 
 if (require.main === module) {
   console.log('Running sanity checks for concat:');
 
-  // Add your own sanity checks here.
-  // How else will you be sure your code does what you think it does?
+  console.log(arrayEquals(concat([1, 2, 3], [4, 5, 6]), [1, 2, 3, 4, 5, 6]));
+  console.log(arrayEquals(concat([-10, undefined], [true, 'waffles']), [-10, undefined, true, 'waffles']));
+  console.log(arrayEquals(concat([], []), []));
+  console.log(arrayEquals(concat([20, 104], []), [20, 104]));
+  console.log(arrayEquals(concat([], ['hello', 'world']), ['hello', 'world']));
 }
 
 module.exports = concat;
