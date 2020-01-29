@@ -15,15 +15,35 @@
  * @returns {string} A lowercase copy of the input string
  */
 
-function rotN(string) {
-  // This is your job. :)
+function rotN(string, n) {
+  let charCodeA = 'A'.charCodeAt(0);
+  string = string.toUpperCase();
+  let code = "";
+  for(let i = 0; i<string.length; i++){
+
+    if(string.charCodeAt(i)<65 || string.charCodeAt(i)>90){
+      code = code + string.charAt(i);
+      continue;
+    } 
+
+    let newCharCode = string.charCodeAt(i) + n;
+
+    code = code + String.fromCharCode(65 + (newCharCode - charCodeA) % 26);
+  }
+
+  return code.toLowerCase();
 }
+
+
 
 if (require.main === module) {
   console.log('Running sanity checks for rotN:');
+  console.log(rotN('Hello, world!', 13));
 
-  // Add your own sanity checks here.
-  // How else will you be sure your code does what you think it does?
+  console.log(rotN('Hello, world!', 13)==='uryyb, jbeyq!');
+
+  console.log(rotN('Hello, world!', 9));
+  console.log(rotN('Hello, world!', 9)==='qnuux, fxaum!');
 }
 
 module.exports = rotN;
